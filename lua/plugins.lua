@@ -45,10 +45,10 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-vsnip'
     use 'hrsh7th/vim-vsnip'
 
-    --vimtex
-    use 'lervag/vimtex'
 
     --fugitive (git thing)
     use 'tpope/vim-fugitive'
 
+    --vimtex
+    use 'lervag/vimtex'
 end)

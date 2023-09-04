@@ -34,7 +34,7 @@ vim.keymap.set("i", "epsilon", '\\epsilon')
 --zeta
 vim.keymap.set("i", "zeta", '\\zeta')
 --eta
-vim.keymap.set("i", "eta", '\\eta')
+vim.keymap.set("i", ";eta", '\\eta')
 --theta
 vim.keymap.set("i", "theta", '\\theta')
 --iota

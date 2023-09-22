@@ -51,4 +51,7 @@ return require('packer').startup(function(use)
 
     --vimtex
     use 'lervag/vimtex'
+
+    --harpoon
+    use 'ThePrimeagen/harpoon'
 end)

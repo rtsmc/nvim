@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/ryantrubey/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  harpoon = {
+    loaded = true,
+    path = "/Users/ryantrubey/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/ryantrubey/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",

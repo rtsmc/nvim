@@ -1,8 +1,25 @@
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<leader>c", vim.cmd.VimtexCompile)
 
+vim.opt.wrap = true
+
 --navigation keybind
 vim.keymap.set({"i", "n", "v"}, ";;", '<Esc>/(<++>)<Enter>"_c6l')
+
+
+--vertical space keybind
+vim.keymap.set("i", ";vs", '\\vspace{}(<++>)<Esc>F}i')
+
+vim.keymap.set("i", ";mb", '\\mathbb{}(<++>)<Esc>F}i')
+
+--quantifiers
+vim.keymap.set("i", ";fa", '\\forall')
+vim.keymap.set("i", ";ex", '\\exists')
+
+--emphasis
+vim.keymap.set("i", ";em", '\\emph{}<Esc>i')
+--enumerate
+vim.keymap.set("i", ";en", '\\begin{enumerate}[]<Enter>\\item<Space>(<++>)<Enter>\\end{enumerate}<Esc>kkf]i')
 
 --math mode
 vim.keymap.set("i", ";mm", '\\[\\](<++>)<Esc>F\\i')
@@ -22,35 +39,35 @@ vim.keymap.set("i", ";fr", '\\frac{}{(<++>)}(<++>)<Esc>F}F}i')
 --infinity
 vim.keymap.set("i", ";if", '\\infty')
 --alpha
-vim.keymap.set("i", "alpha", '\\alpha')
+vim.keymap.set("i", ";alpha", '\\alpha')
 --beta
-vim.keymap.set("i", "beta", '\\beta')
+vim.keymap.set("i", ";beta", '\\beta')
 --gamma
-vim.keymap.set("i", "gamma", '\\gamma')
+vim.keymap.set("i", ";gamma", '\\gamma')
 --delta
-vim.keymap.set("i", "delta", '\\delta')
+vim.keymap.set("i", ";delta", '\\delta')
 --epsilon
-vim.keymap.set("i", "epsilon", '\\epsilon')
+vim.keymap.set("i", ";epsilon", '\\epsilon')
 --zeta
-vim.keymap.set("i", "zeta", '\\zeta')
+vim.keymap.set("i", ";zeta", '\\zeta')
 --eta
 vim.keymap.set("i", ";eta", '\\eta')
 --theta
-vim.keymap.set("i", "theta", '\\theta')
+vim.keymap.set("i", ";theta", '\\theta')
 --iota
-vim.keymap.set("i", "iota", '\\iota')
+vim.keymap.set("i", ";iota", '\\iota')
 --lambda
-vim.keymap.set("i", "lambda", '\\lambda')
+vim.keymap.set("i", ";lambda", '\\lambda')
 --kappa
-vim.keymap.set("i", "kappa", '\\kappa')
+vim.keymap.set("i", ";kappa", '\\kappa')
 --lambda
-vim.keymap.set("i", "lambda", '\\lambda')
+vim.keymap.set("i", ";lambda", '\\lambda')
 --mu
 vim.keymap.set("i", ";mu", '\\mu')
 --pi
-vim.keymap.set("i", "pi", '\\pi')
+vim.keymap.set("i", ";pi", '\\pi')
 --sigma
-vim.keymap.set("i", "sigma", '\\sigma')
+vim.keymap.set("i", ";sigma", '\\sigma')
 
 --comparison/plusminus signs
 vim.keymap.set("i", "<=", '\\leq')

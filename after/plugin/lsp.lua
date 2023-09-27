@@ -90,3 +90,4 @@ require'lspconfig'.eslint.setup{capabilities = capabilities}
 require'lspconfig'.clangd.setup{capabilities = capabilities}
 require'lspconfig'.tsserver.setup{capabilities = capabilities}
 require'lspconfig'.pylyzer.setup{capabilities = capabilities}
+require'lspconfig'.grammarly.setup{capabilities = capabilities, filetypes = {"markdown", "text", "tex"}}

@@ -5,6 +5,19 @@ vim.opt.wrap = true
 --navigation keybind
 vim.keymap.set({"i", "n", "v"}, ";;", '<Esc>/(<++>)<Enter>"_c6l')
 
+--multiplication symbol
+vim.keymap.set("i", ";*", '\\cdot')
+
+--cursive math letters
+vim.keymap.set("i", ";ms", '\\mathscr{}(<++>)<Esc>F}i')
+
+--power
+vim.keymap.set("i", ";^", '^{}(<++>)<Esc>F}i')
+
+--relations
+vim.keymap.set("i", ";op", '(),(<++>)<Esc>F)i')
+vim.keymap.set("i", ";R", '\\mathrel{R}')
+vim.keymap.set("i", ";nR", '\\not\\mathrel{R}')
 
 --vertical space keybind
 vim.keymap.set("i", ";vs", '\\vspace{}(<++>)<Esc>F}i')

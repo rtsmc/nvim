@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
 
     --color theme
     use 'rmehri01/onenord.nvim'
+    --use { "catppuccin/nvim", as = "catppuccin" }
 
     --treesitter
     use {

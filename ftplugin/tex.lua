@@ -8,6 +8,15 @@ vim.keymap.set({"i", "n", "v"}, ";;", '<Esc>/(<++>)<Enter>"_c6l')
 --multiplication symbol
 vim.keymap.set("i", ";*", '\\cdot')
 
+--double quad
+vim.keymap.set("i", ";2q", '\\quad \\quad')
+
+--matrices (with brackets)
+vim.keymap.set("i", ";bm", '\\begin{bmatrix}<Enter><Enter>\\end{bmatrix}<Esc>ki<Tab>')
+
+--noindent
+vim.keymap.set("i", ";ni", '\\noindent ')
+
 --cursive math letters
 vim.keymap.set("i", ";ms", '\\mathscr{}(<++>)<Esc>F}i')
 
@@ -32,6 +41,9 @@ vim.keymap.set("i", ";ex", '\\exists')
 vim.keymap.set("i", ";em", '\\emph{}<Esc>i')
 --enumerate
 vim.keymap.set("i", ";en", '\\begin{enumerate}[]<Enter>\\item<Space>(<++>)<Enter>\\end{enumerate}<Esc>kkf]i')
+--aligned
+vim.keymap.set("i", ";al", '\\[<Enter>\\begin{aligned}<Enter>\\end{aligned}<Enter>\\]<Esc>kko')
+
 
 --math mode
 vim.keymap.set("i", ";mm", '\\[\\](<++>)<Esc>F\\i')
@@ -68,8 +80,8 @@ vim.keymap.set("i", ";eta", '\\eta')
 vim.keymap.set("i", ";theta", '\\theta')
 --iota
 vim.keymap.set("i", ";iota", '\\iota')
---lambda
-vim.keymap.set("i", ";lambda", '\\lambda')
+--phi
+vim.keymap.set("i", ";phi", '\\phi')
 --kappa
 vim.keymap.set("i", ";kappa", '\\kappa')
 --lambda

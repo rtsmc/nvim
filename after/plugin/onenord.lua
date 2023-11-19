@@ -23,7 +23,8 @@ require('onenord').setup({
   },
   custom_highlights = {}, -- Overwrite default highlight groups
   custom_colors = {
-      bg = "#2e3033",
+      bg = "#29292C",
+      --2e3033
       --323232
   }, -- Overwrite default colors
 })

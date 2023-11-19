@@ -7,6 +7,12 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    --browser plugin
+    use {
+        'glacambre/firenvim',
+        run = function() vim.fn['firenvim#install'](0) end
+    }
+
     --fuzzy finder
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',

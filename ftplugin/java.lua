@@ -119,6 +119,10 @@ local config = {
             configuration = {
                 runtimes = {
                     {
+                        name = "JavaSE-15",
+                        path = "/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home",
+                    },
+                    {
                         name = "JavaSE-17",
                         path = "/Library/Java/JavaVirtualMachines/jdk-17.0.3.1.jdk/Contents/Home",
                     },

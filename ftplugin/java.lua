@@ -34,7 +34,7 @@ local on_attach = function(client, bufnr)
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts, "List workspace folders")
     nnoremap('<leader>D', vim.lsp.buf.type_definition, bufopts, "Go to type definition")
-    nnoremap('<leader>rn', vim.lsp.buf.rename, bufopts, "Rename")
+    nnoremap('<leader>nr', vim.lsp.buf.rename, bufopts, "Rename")
     nnoremap('<leader>ca', vim.lsp.buf.code_action, bufopts, "Code actions")
     vim.keymap.set('v', "<leader>ca", "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
     { noremap=true, silent=true, buffer=bufnr, desc = "Code actions" })
@@ -119,10 +119,6 @@ local config = {
             configuration = {
                 runtimes = {
                     {
-                        name = "JavaSE-15",
-                        path = "/Library/Java/JavaVirtualMachines/jdk-15.0.2.jdk/Contents/Home",
-                    },
-                    {
                         name = "JavaSE-17",
                         path = "/Library/Java/JavaVirtualMachines/jdk-17.0.3.1.jdk/Contents/Home",
                     },
@@ -151,11 +147,11 @@ local config = {
 
         -- The jar file is located where jdtls was installed. This will need to be updated
         -- to the location where you installed jdtls
-        "-jar", vim.fn.glob('/opt/homebrew/Cellar/jdtls/1.29.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar'),
+        "-jar", vim.fn.glob('/opt/homebrew/Cellar/jdtls/1.30.1/libexec/plugins/org.eclipse.equinox.launcher_1.6.600.v20231106-1826.jar'),
 
         -- The configuration for jdtls is also placed where jdtls was installed. This will
         -- need to be updated depending on your environment
-        '-configuration', '/opt/homebrew/Cellar/jdtls/1.29.0/libexec/config_mac',
+        '-configuration', '/opt/homebrew/Cellar/jdtls/1.30.1/libexec/config_mac',
 
         -- Use the workspace_folder defined above to store data for this project
         '-data', workspace_folder,

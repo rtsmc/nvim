@@ -129,3 +129,8 @@ require("lspconfig")["rust_analyzer"].setup {
 require("lspconfig")["tsserver"].setup {
     capabilities = capabilities
 }
+
+require("lspconfig")["grammarly"].setup {
+    capabilities = capabilities,
+    filetypes = {"markdown", "text", "tex"},
+}

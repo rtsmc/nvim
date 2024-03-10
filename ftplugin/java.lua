@@ -147,11 +147,11 @@ local config = {
 
         -- The jar file is located where jdtls was installed. This will need to be updated
         -- to the location where you installed jdtls
-        "-jar", vim.fn.glob('/opt/homebrew/Cellar/jdtls/1.30.1/libexec/plugins/org.eclipse.equinox.launcher_1.6.600.v20231106-1826.jar'),
+        "-jar", vim.fn.glob('/opt/homebrew/Cellar/jdtls/1.33.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar'),
 
         -- The configuration for jdtls is also placed where jdtls was installed. This will
         -- need to be updated depending on your environment
-        '-configuration', '/opt/homebrew/Cellar/jdtls/1.30.1/libexec/config_mac',
+        '-configuration', '/opt/homebrew/Cellar/jdtls/1.33.0/libexec/config_mac',
 
         -- Use the workspace_folder defined above to store data for this project
         '-data', workspace_folder,

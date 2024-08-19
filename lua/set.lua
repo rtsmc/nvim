@@ -16,3 +16,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
+
+vim.keymap.set({"i", "n", "v"}, ";j", '<Esc>/(<++>)<Enter>"_c6l')
+vim.keymap.set("i", "{<Enter>", '{<Enter>}<Esc>O')
+vim.keymap.set("i", "(", '()<Esc>i')

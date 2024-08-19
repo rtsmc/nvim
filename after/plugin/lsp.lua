@@ -89,7 +89,7 @@ cmp.setup({
             end
         end, { "i", "s" }),
         ['<C-Space>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -159,16 +159,21 @@ require("lspconfig")["clangd"].setup {
     capabilities = capabilities
 }
 
-require("lspconfig")["eslint"].setup {
-    capabilities = capabilities
-}
+--require("lspconfig")["eslint"].setup {
+--    capabilities = capabilities
+--}
 
 require("lspconfig")["rust_analyzer"].setup {
     capabilities = capabilities
 }
 
 require("lspconfig")["tsserver"].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    init_options = {
+        preferences = {
+            disableSuggestions = true,
+        },
+    },
 }
 
 require("lspconfig")["gopls"].setup {
@@ -186,5 +191,13 @@ require("lspconfig")["gopls"].setup {
 }
 
 require("lspconfig")["html"].setup {
+    capabilities = capabilities
+}
+
+require("lspconfig")["svelte"].setup {
+    capabilities = capabilities
+}
+
+require("lspconfig")["pylsp"].setup {
     capabilities = capabilities
 }

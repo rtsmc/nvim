@@ -16,6 +16,7 @@ vim.opt.wrap = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.scrolloff = 8
+vim.opt.clipboard = "unnamedplus"
 
 -- package manager
 require("config.lazy")
@@ -26,6 +27,9 @@ vim.keymap.set("n", "<C-e>", vim.cmd.Ex)
 -- keybinds to move through quickfix list
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>")
+
+-- allows for deleting without polluting clipboard
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
 -- better keybind for exiting terminal mode
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")

@@ -15,12 +15,21 @@ return {
             },
         },
         config = function()
-            require('lspconfig').lua_ls.setup {}
+            -- enable language servers
+            vim.lsp.enable('lua_ls')
+            vim.lsp.enable('sourcekit')
+            vim.lsp.enable('clangd')
+
+            -- configure language servers
+
+
+            ------- other config ------
 
             -- shows error messages
             vim.diagnostic.config({ virtual_text = true })
 
-            -- function that runs when an LSP attaches to a buffer
+            -- setup format keybinding with a function
+            -- that runs when an LSP attaches to a buffer
             vim.api.nvim_create_autocmd('LspAttach', {
                 callback = function(args)
                     local client = vim.lsp.get_client_by_id(args.data.client_id)

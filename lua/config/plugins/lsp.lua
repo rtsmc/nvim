@@ -17,13 +17,14 @@ return {
         config = function()
             -- enable language servers
             vim.lsp.enable('lua_ls')
-            vim.lsp.enable('sourcekit')
             vim.lsp.enable('clangd')
+            vim.lsp.enable('sourcekit')
+            vim.lsp.enable('gopls')
 
             -- configure language servers
-
-
-            ------- other config ------
+            vim.lsp.config('sourcekit', {
+                filetypes = { "swift", "objc", "objcpp" }
+            })
 
             -- shows error messages
             vim.diagnostic.config({ virtual_text = true })

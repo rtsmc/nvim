@@ -25,8 +25,8 @@ require("config.lazy")
 vim.keymap.set("n", "<C-e>", vim.cmd.Ex)
 
 -- keybinds to move through quickfix list
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>")
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>")
+vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>")
 
 -- allows for deleting without polluting clipboard
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])

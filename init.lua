@@ -1,59 +1,91 @@
--- map the leader key
+----------------------------------------------------------------------------------
+-- Vim Options
+----------------------------------------------------------------------------------
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.o.nu = true
+vim.o.relativenumber = true
+-- tab/indent related
+vim.o.smartindent = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+-- other
+vim.o.wrap = false
+vim.o.hlsearch = false
+vim.o.incsearch = true
+vim.o.scrolloff = 8
+vim.o.clipboard = "unnamedplus"
+vim.o.winborder = "rounded"
+vim.o.signcolumn = "yes"
 
--- vim.opts
-vim.opt.nu = true
-vim.opt.relativenumber = true
-
-vim.opt.smartindent = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
-vim.opt.wrap = false
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.scrolloff = 8
-vim.opt.clipboard = "unnamedplus"
-
--- package manager
-require("config.lazy")
-
--- <C-e> to exit editor
-vim.keymap.set("n", "<C-e>", vim.cmd.Ex)
-
--- keybinds to move through quickfix list
-vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>")
-vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>")
-
--- allows for deleting without polluting clipboard
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
-
--- better keybind for exiting terminal mode
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
-
--- terminal settings
+-- built in terminal settings
 vim.api.nvim_create_autocmd('TermOpen', {
     group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
     callback = function()
-        vim.opt.number = false
-        vim.opt.relativenumber = false
+        vim.o.number = false
+        vim.o.relativenumber = false
     end,
 })
 
--- small terminal
-vim.keymap.set("n", "<space>st", function()
-    vim.cmd.vnew()
-    vim.cmd.term()
-    vim.cmd.wincmd("J")
-    vim.api.nvim_win_set_height(0, 15)
-end)
+----------------------------------------------------------------------------------
+-- Keybinds
+----------------------------------------------------------------------------------
+vim.keymap.set("n", "<C-e>", vim.cmd.Oil)
+vim.keymap.set("n", "<C-n>", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<C-p>", "<cmd>cprev<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
+vim.keymap.set("n", '<leader>qf', vim.diagnostic.setqflist);
 
--- terminal in new tab
-vim.keymap.set("n", "<space>nt", function()
-    vim.cmd.vnew()
-    vim.cmd.term()
-    vim.cmd.wincmd("T")
-end)
+-- small terminal
+vim.keymap.set("n", "<space>st",
+    function()
+        vim.cmd.vnew()
+        vim.cmd.term()
+        vim.cmd.wincmd("J")
+        vim.api.nvim_win_set_height(0, 15)
+    end)
+
+-- formatting keybind
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(event)
+        local opts = { buffer = event.buf }
+        vim.keymap.set({ 'n', 'x' }, 'gq', function()
+            vim.lsp.buf.format({ async = true })
+        end, opts)
+    end,
+})
+
+-- mini pick keybinds
+vim.keymap.set('n', '<leader>f', ":Pick files<CR>")
+vim.keymap.set('n', '<leader>h', ":Pick help<CR>")
+
+
+----------------------------------------------------------------------------------
+-- Plugins
+----------------------------------------------------------------------------------
+vim.pack.add({
+    { src = "https://github.com/rebelot/kanagawa.nvim" },
+    { src = "https://github.com/stevearc/oil.nvim" },
+    { src = "https://github.com/echasnovski/mini.icons" },
+    { src = "https://github.com/echasnovski/mini.pick" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+})
+
+vim.cmd.colorscheme "kanagawa"
+
+require "oil".setup()
+
+require "mini.icons".setup()
+require "mini.pick".setup()
+
+require "nvim-treesitter.configs".setup({
+    ensure_installed = { "c", "cpp", "lua" },
+    highlight = { enable = true }
+})
+
+----------------------------------------------------------------------------------
+-- Language Servers
+----------------------------------------------------------------------------------
+vim.lsp.enable({ "lua_ls", "clangd", "basedpyright" })

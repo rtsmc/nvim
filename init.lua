@@ -2,6 +2,7 @@
 -- Vim Options
 ----------------------------------------------------------------------------------
 vim.g.mapleader = " "
+vim.g.netrw_bufsettings = 'nu rnu'
 vim.o.nu = true
 vim.o.relativenumber = true
 -- tab/indent related
@@ -70,22 +71,12 @@ vim.pack.add({
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/echasnovski/mini.icons" },
     { src = "https://github.com/echasnovski/mini.pick" },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
 vim.cmd.colorscheme "kanagawa"
 
 require "oil".setup()
-
 require "mini.icons".setup()
 require "mini.pick".setup()
 
-require "nvim-treesitter.configs".setup({
-    ensure_installed = { "c", "cpp", "lua" },
-    highlight = { enable = true }
-})
-
-----------------------------------------------------------------------------------
--- Language Servers
-----------------------------------------------------------------------------------
-vim.lsp.enable({ "lua_ls", "clangd", "basedpyright" })
+vim.lsp.enable({ "lua_ls", "clangd", "basedpyright", "ruff"})

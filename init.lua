@@ -48,6 +48,16 @@ vim.keymap.set("n", "<space>st",
         vim.api.nvim_win_set_height(0, 15)
     end)
 
+vim.keymap.set("n", "<leader>r",
+    function()
+        local filename = vim.fn.expand('%:t')
+        local escaped_filename = vim.fn.shellescape(filename)
+        vim.cmd.vnew()
+        vim.cmd.term("racket -e '(enter! \""..escaped_filename.."\")' -i")
+        vim.cmd.wincmd("J")
+        vim.api.nvim_win_set_height(0, 15)
+    end)
+
 -- formatting keybind
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(event)
@@ -79,4 +89,4 @@ require "oil".setup()
 require "mini.icons".setup()
 require "mini.pick".setup()
 
-vim.lsp.enable({ "lua_ls", "clangd", "basedpyright", "ruff"})
+vim.lsp.enable({ "lua_ls", "clangd", "basedpyright", "ruff", "racket_langserver" })

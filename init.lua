@@ -52,10 +52,10 @@ vim.keymap.set("n", "<space>st", small_term)
 
 -- racket language keybindings
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "rkt",
+    pattern = "racket",
     callback = function()
         local escaped_filename = vim.fn.shellescape(vim.fn.expand('%:t'))
-        vim.keymap.set("n", "<leader>r", function() small_term(escaped_filename) end)
+        vim.keymap.set("n", "<leader>r", function() small_term("racket -e '(enter! \""..escaped_filename.."\")' -i") end)
     end
 })
 
